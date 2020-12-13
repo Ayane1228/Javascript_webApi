@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				display: block;
+				width: 100px;
+				height: 100px;
+				background-color: #000000;
+				color: #FFFFFF;
+				line-height: 100px;
+				text-align: center;
+				margin: 100px 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<button class="begin">开启定时器</button>
+		<button class="end">关闭定时器</button>
+		<script>
+			var begin = document.querySelector('.begin');
+			var end = document.querySelector('.end');
+			var div = document.querySelector('div');
+			// 现在外面定义一个全局变量 这样开始和结束定时器都可以调用这个全局变量
+			var time = null;
+			begin.addEventListener('click',function(){
+			var time = 	setInterval(function(){
+				var num = parseInt(div.innerHTML);//可以把字符串变成数字类型
+				div.innerHTML = num + 1;
+				console.log('你好');
+				},1000);
+			})
+			end.addEventListener('click',function(){
+				clearInterval(time);
+			})
+		</script>
+	</body>
+</html>

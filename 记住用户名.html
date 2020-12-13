@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记住用户名</title>
+</head>
+<body>
+    <!-- 
+            1.将数据存储在本地存储中，关闭页面也要调用数据，所以使用localStroge
+            2.打开页面，先判断是否有用户名，如果有，就在表单里面显示用户名，并勾选复选框
+     -->
+     <input type="text" id = "username">
+     <input type="checkbox" name="" id="remember">
+     记住用户名
+<script>
+    var username = document.querySelector('#username');
+    var remember = document.querySelector('#remember');
+    if(localStorage.getItem('username')){
+        remember.checked = true;
+        username.value = localStorage.getItem('username');
+    };
+    remember.addEventListener('change',function(){
+        if(this.checked){
+            localStorage.setItem('username',username.value)
+        }else{
+            localStorage.removeItem('username');
+        }
+    })
+</script>
+</body>
+</html>

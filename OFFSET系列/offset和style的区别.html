@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+			.B{
+				padding: 10px;
+				height: 20px;
+				background-color: #0000FF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="B" style="width: 200px;"></div>
+		<div class="box"></div>
+		<script>
+			var box = document.querySelector('.box');
+			var B = document.querySelector('.B');
+			// offset和style的区别
+
+			// 1.style只能获得行内样式表中的样式符
+			// 2. offset获得数值没有单位 style获得有单位
+			// 3.offset获得包含padding border值 
+			// style不包含这些值
+			console.log(box.offsetWidth);
+			console.log(box.style.width);
+			console.log(B.style.width);
+
+			
+			// style可以给样式赋值
+			box.style.width = '300px';
+			// offset不可以给样式赋值
+			box.offsetHeight = '300px';
+			
+			
+			// 结论
+			// 获取元素大小位置用offset
+			// 改变元素大小用style
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

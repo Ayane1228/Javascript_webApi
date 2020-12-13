@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box{
+				margin: 0 auto;
+				width: 750px;
+				height: 200px;
+				position: relative;
+				display: block;
+			}
+			.btn{
+				float: right;
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				width: 20px;
+				height: 20px;
+				cursor: pointer;
+				border: 1px solid #CCCCCC;
+				background-color: rgba(255,255,255,0.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="./zuoye/u=1157304010,2210961018&fm=26&gp=0.jpg" />
+			<i class="btn">X</i>
+		</div>
+		<script>
+			var Btn = document.querySelector('.btn');
+			var Box = document.querySelector('.box'); 
+			Btn.onclick = function(){
+				Box.style.display = 'none';}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="dmo" index = "1"></div>
+	</body>
+	<script>
+		var div = document.querySelector('div');
+		console.log(div.getAttribute('id'));
+		// 获得自定属性 要用getAttribute  index为用户自定义的属性
+		console.log(div.getAttribute('index'));
+		// 设置自定义属性值
+		div.setAttribute('index',2);
+		console.log(div.getAttribute('index'));
+		// 移除属性值
+		div.removeAttribute('index');
+		console.log(div.getAttribute('index'));
+	</script>
+</html>

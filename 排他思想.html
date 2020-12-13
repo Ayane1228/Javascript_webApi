@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			button,
+			input {
+				font-family: 'Microsoft YaHei', 'Heiti SC', tahoma, arial, 'Hiragino Sans GB', \\5B8B\4F53, sans-serif;
+				/* 	去掉边框 */
+				border: 0;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 循环排他思想：
+							1.所有元素清楚样式
+							2.给当前元素设置样式
+							-->
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		<button>按钮5</button>
+		<script>
+			/* 获取所有按钮元素 */
+			var Btn = document.getElementsByTagName('button');
+			for(var i = 0; i < Btn.length ; i++){
+				Btn[i].onclick = function(){
+					//1.先取出所有按钮的背景颜色
+					for(var i = 0; i < Btn.length ; i++){
+						Btn[i].style.backgroundColor = '';
+					}
+					//2.让当前的按钮的背景颜色为pink
+						this.style.backgroundColor = 'pink';
+				}
+			}
+		</script>
+	</body>
+</html>

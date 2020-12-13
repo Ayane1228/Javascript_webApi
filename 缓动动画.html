@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			span{
+				margin-top: 50px;
+				position: absolute;
+				left: 0;
+				width: 200px;
+				height: 200px;
+				background-color: purple;
+			}
+		</style>
+	</head>
+	<body>
+	<!-- 
+			思路 1.让盒子每次移动的距离慢慢变小，速度就会慢慢落下来
+				 2.（目标值-现在的位置）/10 作为每次移动的距离步长
+	 -->
+	 <button class="btn500">点击之后才到500</button>
+	 <button class="btn800">点击之后才到800</button>
+	<span></span>
+	<script>
+				function animate(obj,target,callBack){
+					// 解决方案 元素只有一个定时器执行
+					clearInterval(obj.timer);
+					obj.timer = setInterval(function(){
+						// 给步长值取整 向上（Math.ceil）向下（Math.floor）
+						var step = (target - obj.offsetLeft) / 10 ;
+						// 如果step为正值则向上取整 若为负值（倒着走）则向下取整
+						step = step > 0 ?Math.ceil(step) : Math.floor(step); 
+						if(obj.offsetLeft == target){
+							clearInterval(obj.timer);
+							// 回调函数写到定时器结束里面
+							//判断是否有回调函数
+							if(callBack){
+								// 有就调用回调函数（callback函数）
+								callBack();
+							}
+						}
+						obj.style.left = obj.offsetLeft + step + 'px';
+					},30);
+				}		
+		var span = document.querySelector('span');
+		var btn500 = document.querySelector('.btn500');
+		var btn800 = document.querySelector('.btn800');
+		btn500.addEventListener('click',function(){
+			animate(span,500);
+		});
+		btn800.addEventListener('click',function(){
+			animate(span,800,function(){
+				span.style.backgroundColor = '#ccffff';
+			});
+		});
+	</script>
+	</body>
+</html>

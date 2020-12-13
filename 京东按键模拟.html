@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<script>
+			// 用户按下S键 搜索框自动获得焦点
+			var search = document.querySelector('input');
+			document.addEventListener('keyup',function(e){
+				if( e.keyCode === 83)
+			// 驼峰命名法 key  C ode
+				{
+			 		console.log('输入了s');
+			 		search.focus();
+			 	}
+			 })
+
+		</script>
+	</body>
+</html>

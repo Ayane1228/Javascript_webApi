@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>删除</button>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<script>
+			var ul = document.querySelector('ul');
+			var btn = document.querySelector('button');
+			btn.onclick = function(){
+				if(ul.children.length == 0){
+					alert('错误');
+					// 禁用按钮
+					this.disabled = true;
+				}else{
+				ul.removeChild(ul.children[0]);					
+				}
+
+			}
+		</script>
+	</body>
+</html>

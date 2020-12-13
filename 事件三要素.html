@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div>水水水水是是是所所所所</div>
+		<!-- 事件源 事件类型 事件处理程序 -->
+		<!-- 事件源：事件被触发的对象 -->
+		<script>
+			// 事件源
+			var btn = document.getElementById('btn');
+			// 事件类型 如何触发  比如鼠标点击：onclick，鼠标经过，键盘按下
+			// 事件处理程序 通过一个函数赋值 完成 
+			btn.onclick = function(){
+				alert("时间完成");
+			}
+			var Div = document.querySelector('div');
+			Div.onclick = function(){
+				console.log('被选中了');
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li{
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div class="box">
+			<span class="erweima">sss</span>
+		</div>
+		<script>
+			var ul = document.querySelector('ul');
+			var erweima = document.querySelector('.erweima');
+			// 打印erweima的父节点
+			// 得到的是最近的父节点
+			console.log(erweima);
+			console.log(erweima.parentNode);
+			
+			// 打印子节点 所有的子节点包含元素节点和文本节点
+			console.log(ul.childNodes);
+		
+			// 真正常用的 获取所有的子元素节点
+			console.log(ul.children);
+			
+			// 获取元素的第一个/最后一个子节点,不管是文本节点还是元素节点
+			console.log(ul.firstChild);
+			console.log(ul.lastChild);
+			
+			// 获取第一个/最后一个元素字节点 不兼容IE9以下版本
+			console.log(ul.firstElementChild);
+			console.log(ul.lastElementChild);
+			
+			// 实际开发的写法
+			console.log(ul.children[0]);
+			console.log(ul.children.length);
+			console.log(ul.children[ul.children.length - 1]);
+		</script>
+	</body>
+</html>

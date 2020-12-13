@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body {
+			    padding: 100px;
+			}
+			textarea{
+				width: 300px;
+				height: 300px;
+				border: 5px solid pink;
+				outline: none;
+				resize: none;
+			}
+			button{
+				font-size: 24px;
+			}
+			ul {
+			    margin-top: 50px;
+			}
+			
+			li{
+				width: 400px;
+				background-color: #55ffff;
+				color: #000000;
+				border: 1px solid pink;
+				margin-bottom: 10px;
+			}
+			li a{
+				float: right;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			点击按钮之后就动态添加一个li
+			创建li的时候把文本域的通过inner.html赋值给li
+		-->
+		<textarea id="" name=""></textarea>
+		<button>发布</button>
+		<ul>
+			
+		</ul>
+		<script>
+			var btn = document.querySelector('button');
+			var text = document.querySelector('textarea');
+			var ul = document.querySelector('ul');
+			// 注册事件
+			btn.onclick = function(){
+				if(text.value ==''){
+					alert("没有输入内容");
+					return false;
+				}else{
+				// 创建li
+				var li = document.createElement('li');
+				// 赋值给li, a链接加上javascript:; 可以不跳转
+				li.innerHTML = text.value + "<a href = 'javascript:;'>删除</a>";
+						}
+				// 添加到ul中
+				ul.appendChild(li);
+				// 删除元素，通过删除a的父节点
+				var a = document.querySelectorAll('a');
+				for(var i = 0 ;i <a.length;i++){
+					a[i].onclick = function(){
+						// 删除节点 node.removeChild（child）父节点删除子节点
+						ul.removeChild(this.parentNode);
+				}
+				}
+			}
+		</script>
+	</body>
+</html>

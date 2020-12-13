@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			.table{
+				width: 1200px;
+				margin: 100px auto;
+			}
+			.tab-list {
+				width: 750px;
+				overflow: hidden;
+				background-color: #ccc;
+			}
+			.tab-list li{
+				float: left;
+				width: 150px;
+				text-align: center;
+				cursor:pointer;
+			}
+			.current{
+				color: #ffffff;
+				background-color:#b1191a;
+			}
+			.item{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="table">
+			<div  class="tab-list">
+				<ul>
+					<li class="current">0</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					
+				</ul>
+			</div>
+			<div class="tab-con">
+				<div class="item" style="display: block;">
+					商品介绍模块0
+				</div>
+				<div class="item">
+					商品介绍模块1
+				</div>
+				<div class="item">
+					商品介绍模块2
+				</div>
+				<div class="item">
+					商品介绍模块3
+				</div>
+				<div class="item">
+					商品介绍模块4
+				</div>
+			</div>
+		</div>
+		<script>
+				/* 给tb_list添加自定义属性，属性从0开始编号 */
+
+			var tab_list = document.querySelector('.tab-list')
+			var li = tab_list.querySelectorAll('li');
+			var item = document.querySelectorAll('.item');
+			// 第一个循环 获取所有的下标来使用li[i]这个属性 来加上所有li的点击事件
+			for(var i = 0;i < li.length; i++){
+				// 开始给五个li设置索引号
+				li[i].setAttribute('index',i);
+				li[i].onclick = function(){
+					// 点击其中一个 只有它变红
+					// 干掉所有人 其余的所有人清除class
+					for(var i = 0;i < li.length; i++){
+						li[i].className = '';
+					} 
+					this.className = 'current';// 留下自己
+					var index = this.getAttribute('index');//取得索引号
+					for(var i = 0; i < item.length;i++){
+						item[i].style.display = 'none';
+					}
+					item[index].style.display = 'block';//让对应序号显示
+					}
+			}
+		</script>
+	</body>
+</html>

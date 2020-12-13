@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li{
+				list-style: none;
+			}
+			table{
+				width: 500px;
+				margin: 100px auto;
+				border-collapse: collapse;
+				text-align: center;
+			}
+			td{
+				border: 1px solid #333;
+			}
+			th{
+				border: 1px solid #333;
+			}
+			thead tr{
+				height: 40px;
+				background-color: #ccc;
+			}
+			tbody {
+				width:500px ;
+			}
+		</style>
+	</head>
+	<body>
+			<table cellspaceing="0">
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>科目</th>
+						<th>成绩</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<script>
+				// 创建数据,通过创建数组来创建多组数据
+				var datas = [
+					{	name:'rie',
+						subject:'javascript',
+						score:100
+					},
+						{	name:'zcly',
+							subject:'javascript',
+							score:10
+						},
+							{	name:'test',
+								subject:'javascript',
+								score:11000
+							}
+				];
+				// 在tbody中创建行，通过数组的长度可以得到有几行
+				var tbody = document.querySelector('tbody');
+				for(var i = 0;i < datas.length;i++){
+					// 创建行tr 
+					var tr = document.createElement('li');
+					// 插入行
+					tbody.appendChild(tr);
+					// 创建单元格td，单元格的数量取决于每个对象中有几个属性
+					for(var k in datas[i])
+					// 遍历对象 k得到的是属性名 obj[k]得到的是属性值
+					{	//创建单元格
+						var td = document.createElement('td');
+						// 打印属性值console.log(datas[i][k]);
+						td.innerHTML= datas[i][k];
+						tr.appendChild(td);
+					}	
+					var td = document.createElement('td');
+					td.innerHTML = '<a href="javascript:;">删除</a>'
+					tr.appendChild(td);
+					// 添加删除操作
+					var a = document.querySelectorAll('a');
+					for(var i = 0;i < a.length;i++){
+						a[i].onclick = function(){
+							tbody.removeChild(this.parentNode.parentNode);
+						}
+						
+					}
+				}
+
+			</script>
+	</body>
+</html>

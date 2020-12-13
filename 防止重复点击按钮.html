@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		手机号码：<input type="number" />
+		<button>发送</button>
+		<script>
+			// 定义剩下的秒
+			var time = 60;
+			var button = document.querySelector('button');
+			// 添加按钮的点击事件
+			button.addEventListener('click',function(){
+				// 按钮无法点击
+				button.disabled = true;
+				// 定义一个每一S跳一次的定时器
+				var times = setInterval(function(){
+					// 如果定时器中时间为0 执行 清除定时器 重启按钮
+					if(time == 0){
+						clearInterval(times);
+						button.disabled = false;
+						button.innerHTML = '发送';
+						time = 60;
+					}else{
+						// 不为0 1s 减一次
+						button.innerHTML = '还剩下' + time + 's';
+						time--;
+					}
+				},1000);
+			})
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// button.addEventListener('click',function(){
+			// 	button.disabled = true;
+			// 	var dingshiqi = setInterval(function()){
+			// 		if(time == 0){
+			// 			button.disabled = false;
+			// 			clearInterval();
+			// 		}else{
+			// 	button.innerHTML ='还剩下'+time+'s';
+			// 	time--;						
+			// 		}
+			// 	},1000
+
+			// })
+		</script>
+	</body>
+</html>

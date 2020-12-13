@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				overflow: hidden;
+				width: 200px;
+				height: 200px;
+				background-color: purple;
+				margin: 100px auto;
+				text-align: center;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin: 50px;
+				line-height: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">son</div>
+		</div>
+		<script>
+			// 捕获阶段 如果addEventListener 的第三个参数为true则为捕获阶段 document html body father son 处于捕获阶段 先执行father
+			// var son =document.querySelector('.son');
+			// son.addEventListener('click',function(){
+			// 	alert('SON');
+			// },true);
+			// var father = document.querySelector('.father');
+			// father.addEventListener('click',function(){
+			// 	alert('father');
+			// },true)
+			// 冒泡阶段 与捕获阶段相反 先执行son 在执行father 冒泡阶段的false可以省略
+			var son =document.querySelector('.son');
+			son.addEventListener('click',function(){
+				alert('SON');
+			});
+			var father = document.querySelector('.father');
+			father.addEventListener('click',function(){
+				alert('father');
+			})
+		</script>
+	</body>
+</html>

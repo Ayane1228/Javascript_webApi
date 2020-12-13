@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+<body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空所有数数据</button>
+
+    <!-- 
+            SessionStorage的生命周期为关闭浏览器窗口
+            在同一个窗口下数据可以共享
+            以键值对的形式存储使用
+            一个键只能对应一个数据
+     -->
+    <script>
+        var inp = document.querySelector('input');
+        var set = document.querySelector('.set');
+        set.addEventListener('click',function(){
+            // 点击之后将数据存储起来
+            //1.获取数据
+            var val = inp.value;
+            // 2.保存数据:sessionStorage.setItem('key',value);
+            // 两个数据分别是键值（名字），存储的值（value）
+            // SessionStorage存储在控制台的Application的Session Storage
+            sessionStorage.setItem('uname',val);
+            sessionStorage.setItem('age',val);
+        });
+        // 3.获取数据  sessionStorage.getItem(key);
+        var get = document.querySelector('.get');
+        get.addEventListener('click',function(){
+            console.log(sessionStorage.getItem('uname'));
+        });
+        // 3.移除数据  sessionStorage.removeItem(key);
+        var remove = document.querySelector('.remove');
+        remove.addEventListener('click',function(){
+            console.log(sessionStorage.removeItem('uname'));
+        });   
+        // 3.清除数据  sessionStorage.clear(); 不写键值
+        var del = document.querySelector('.del');
+        del.addEventListener('click',function(){
+          sessionStorage.clear();
+        });             
+    </script>
+</body>
+</html>

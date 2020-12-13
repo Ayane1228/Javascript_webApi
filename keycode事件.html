@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// keycode 返回键盘键的ASCLL值
+			// keyup和keydown不区分字母大小写
+			// keypress区分字母大小写
+			// 我们可以通过keycode返回的ASCLL值来判断用户按了什么值
+			document.addEventListener('keyup',function(e){
+				// console.log(e);
+				console.log('up' + e.keyCode);
+			})
+			document.addEventListener('keypress',function(e){
+				// console.log(e);
+				console.log('press' + e.keyCode);
+			})
+		</script>
+	</body>
+</html>

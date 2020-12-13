@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			input{
+				outline: none;
+			}
+			.right{
+				border: 1px solid #CCCCCC;
+				color: #CCCCCC;
+			}
+			.pink{
+				border: 1px solid pink;
+			}
+		</style>
+	</head>
+	<body>
+			<input type="text" value="邮箱/id/手机号" class="right"/>
+			<script>
+				var ipt = document.querySelector('input');
+				ipt.onfocus = function(){
+					if(this.value  === '邮箱/id/手机号'){
+						this.value = '';
+							this.className = 'pink';
+					}
+				}
+			</script>
+	</body>
+</html>

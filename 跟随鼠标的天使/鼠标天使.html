@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img{
+				position: absolute;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<img src="angel.gif" />
+		<script>
+			var pic = document.querySelector('img');
+			// 鼠标移动注册事件
+			document.addEventListener('mousemove',function(e){
+				// mousemove 鼠标移动触发事件
+				var  x = e.pageX;
+				var y = e.pageY;
+				// 拼接字符串 加上单位
+				pic.style.left = x - 50 + 'px';
+				pic.style.top = y - 40 + 'px';
+			})
+		</script>
+	</body>
+</html>

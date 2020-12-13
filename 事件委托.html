@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1sssssssssssssssss</li>
+			<li>11sssssssssssssssss</li>
+			<li>11sssssssssssssssss</li>
+			<li>11sssssssssssssssss</li>
+			<li>11sssssssssssssssss</li>
+			<li>11sssssssssssssssss</li>
+		</ul>
+		<!-- 事件委托 不给每个子节点单独设置事件监听器 而是设置在父节点上 利用冒泡原理影响每个子节点 -->
+		<!-- li点击之后触发冒泡到ul ul点击之后就会触发事件 -->
+	<script>
+		var ul = document.querySelector('ul');
+		ul.addEventListener('click',function(e){
+			// e.target 得到点击的对象 + 排他思想 
+			e.target.style.backgroundColor = 'pink';
+		})
+	</script>
+	</body>
+</html>

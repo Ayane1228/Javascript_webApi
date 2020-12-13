@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<i>shangyige</i>
+		<div>我是div</div>
+		<span>我是span</span>
+		<script>
+			var div = document.querySelector('div');
+			// 下一个兄弟节点 包含元素节点和文本节点
+			console.log(div.nextSibling);
+			// 上一个兄弟节点
+			console.log(div.previousSibling);
+			// 兼容性问题 IE
+			// 下一个元素兄弟节点
+			console.log(div.nextElementSibling);
+			// 上一个兄弟元素节点
+			console.log(div.previousElementSibling);
+			
+			
+		</script>
+	</body>
+</html>

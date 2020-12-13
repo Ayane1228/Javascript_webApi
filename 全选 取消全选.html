@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				width:300px;
+				margin: 100px auto;
+			}
+			table{
+				width: 300px;
+				border: 1px solid #c0c0c0;
+				border-collapse: collapse;
+				border-spacing:0; 
+			}
+			th,td{
+				padding: 10px;
+				border: 1px solid #d0d0d0;
+				color: #404060;
+			}
+			th{
+				background-color: #09c;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<table>
+				<thead>
+					<tr>
+						<th>
+							<input type="checkbox" id="j_cbALL" />
+						</th>
+						<th>商品</th>
+						<th>价值</th>
+					</tr>
+				</thead>
+				<tbody id="j_tb">
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>IPhone8</td>
+						<td>8000</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>IPhone8</td>
+						<td>8000</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>IPhone8</td>
+						<td>8000</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>IPhone8</td>
+						<td>8000</td>
+					</tr>
+				</tbody>			
+			</table>
+		</div>
+		<script>
+		// 全选和取消全选：让下面复选框的checked属性跟随全选按钮即可
+		var j_cball = document.getElementById('j_cbALL');
+		 var j_tb = document.getElementById('j_tb').getElementsByTagName('input');
+		//获取元素 全选按钮id="j_cbALL" 复选框：tbody中的id="j_tb"中tagName为input的元素
+		// 注册事件： 全选按钮的点击事件
+		j_cball.onclick = function(){
+			// 当前的checked属性可以得到当前复选框的选中状态 true为选中，flase为未选中
+			// for循环 循环次数：j_tb的长度
+			for(var i = 0; i < j_tb.length;i++ ){
+			// 让j_tb【i】的checked等于this.checked
+				j_tb[i].checked = this.checked;
+			}
+		}
+		// 2下面复选框影响全选框
+			for(var i = 0;i < j_tb.length;i++){
+			// 每一个按钮都要绑定事件
+			j_tb[i].onclick = function(){
+			// 定义一个变量flag影响全选按钮是否选中
+						var flag = true;
+			// 每次点击下下面的复选框都循环检查按钮的checked状态 再次for循环
+			for(var i = 0; i < j_tb.length;i++){
+			// 如果下面复选框中有一个按钮没有被选中 flag变成flase 
+			// if(!a)表示：只有里面 有一个不成立则执行if语句后面的内容 
+			// 当有下面一个复选框的checked状态不为true表示有一个复选框没有被选中 即不是所有的复选框都被选中了 则改变全选按钮的标志值flag的值
+				if(!j_tb[i].checked){
+					flag = false;
+					 break; // 退出for循环 这样可以提高执行效率 因为只要有一个没有选中，剩下的就无需循环判断了
+				}
+			}
+				j_cball.checked = flag;	//让全选按钮的checked等于flag 
+		}
+	}
+		</script>
+	</body>
+</html>

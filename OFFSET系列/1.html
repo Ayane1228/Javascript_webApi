@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				margin: 100px;
+				background-color: pink;
+				position: relative;
+			}
+			.son{
+				width: 25px;
+				height: 25px;
+				background: #ccffff;
+				position: absolute;
+				margin: 20px;
+				}
+			.w{
+				width: 25px;
+				height: 25px;
+				background-color: #0000FF;
+				padding: 20px;
+			}	
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<div class="w"></div>
+		<script>
+			var father = document.querySelector('.father');
+			var son =document.querySelector('.son');
+			var w = document.querySelector('.w');
+			// offset可以动态得到元素的偏移位置 返回   不带单位的数值 
+			
+			console.log(father.offsetTop);//距离顶部的偏移量
+			// 以带  有定位的父亲   为准 如果没有父亲或者父亲没有定位 则以body为准
+			console.log(son.offsetLeft);
+			
+			// 输出得到元素的大小 宽度和高度
+			// 会计算padding值 border值 内边距 
+			// width + padding * 2 + border * 2
+			// 不包含margin值
+			console.log(father.offsetWidth);
+			console.log(son.offsetHeight);
+			console.log(w.offsetHeight);
+			
+			// offsetParent 若有 带定位的父亲 则返回父亲 没有就返回body 
+			console.log(son.offsetParent);
+			console.log(w.offsetParent);
+			
+			// parentNode 返回父亲节点 
+			// 返回的是最近一级的父亲 不管有没有定位
+			console.log(son.parentNode);
+			console.log(w.parentNode);			
+			</script>
+	</body>
+</html>

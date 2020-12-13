@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			//1. keyup按键弹起的时候触发
+			document.addEventListener('keyup',function(){
+				console.log('我弹起了');
+			})
+			// 2.keydown 按键按下时触发
+			document.addEventListener('keydown',function(){
+				console.log('我按下了');
+			})
+			//3.keypress 按键按下时触发 不对ctrl 和 shift alt 箭头 触发
+			document.addEventListener('keypress',function(){
+				console.log('我按下了press');
+			})				
+			// 执行顺序 keydown keypress keyup
+		</script>
+	</body>
+</html>

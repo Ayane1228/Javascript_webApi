@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			// console.log(location.search); ？uname = 
+			// 去掉？substr（'起始位置'，截取几个字符）
+				// 定义一个新字符串
+			var str = location.search.substr(1);
+				console.log(str);
+				// 利用split和'='把字符串分割为数组
+				var arr = str.split('=');
+				console.log(arr);
+				var div = document.querySelector('div');
+				div.innerHTML = arr[1] + '欢迎你。'
+		</script>
+	</body>
+</html>
